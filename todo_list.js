@@ -49,6 +49,8 @@ button.addEventListener("click", (e) => {
   console.log(descInput.value);
   addTask(descInput.value, timeDue);
   descInput.value = "";
+  dueDateInput.value = "2022-01-01";
+  dueTimeInput.value = "01:00";
 });
 
 descInput.addEventListener("keydown", function (event) {
@@ -65,8 +67,7 @@ console.log(document.querySelectorAll(".done"));
 
 // Placeholder tasks
 addTask("do the dishes");
-addTask("Complete Problem Set 4", ["2/14/2022", "3:30"]);
-
+addTask("Complete Problem Set 4", ["2/14/2022", "15:30"]);
 
 document.addEventListener(
   "click",
