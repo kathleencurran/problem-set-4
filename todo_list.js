@@ -24,10 +24,10 @@ function addTask(description, dueTime = false) {
   var dueDate = document.createElement("span");
   dueDate.setAttribute("class", "due");
 
-  if (dueTime != false) {
-    dueDate.innerHTML = " Due: " + dueTime[0] + " at " + dueTime[1];
-  } else {
+  if (dueTime[0] == "") {
     dueDate.innerHTML = "";
+  } else {
+    dueDate.innerHTML = " Due: " + dueTime[0] + " at " + dueTime[1];
   }
   newItem.appendChild(dueDate);
 
@@ -49,8 +49,8 @@ button.addEventListener("click", (e) => {
   console.log(descInput.value);
   addTask(descInput.value, timeDue);
   descInput.value = "";
-  dueDateInput.value = "2022-01-01";
-  dueTimeInput.value = "01:00";
+  dueDateInput.value = "";
+  dueTimeInput.value = "";
 });
 
 descInput.addEventListener("keydown", function (event) {
@@ -59,6 +59,8 @@ descInput.addEventListener("keydown", function (event) {
     let timeDue = [dueDateInput.value, dueTimeInput.value];
     addTask(descInput.value, timeDue);
     descInput.value = "";
+    dueDateInput.value = "";
+    dueTimeInput.value = "";
   }
 });
 
